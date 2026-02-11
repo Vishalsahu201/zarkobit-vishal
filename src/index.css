@@ -2,65 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 6%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 6%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 6%;
-    --primary: 0 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 6%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 6%;
-    --destructive: 0 84% 60%;
+    --background: 20 10% 6%;
+    --foreground: 40 20% 95%;
+    --card: 20 10% 10%;
+    --card-foreground: 40 20% 95%;
+    --popover: 20 10% 10%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 38 70% 55%;
+    --primary-foreground: 20 10% 6%;
+    --secondary: 20 8% 15%;
+    --secondary-foreground: 40 20% 90%;
+    --muted: 20 8% 18%;
+    --muted-foreground: 30 10% 55%;
+    --accent: 38 50% 30%;
+    --accent-foreground: 40 20% 95%;
+    --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 100% 50%;
+    --border: 25 10% 18%;
+    --input: 25 10% 18%;
+    --ring: 38 70% 55%;
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 7%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 0 100% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 0 100% 50%;
+    --sidebar-background: 20 10% 7%;
+    --sidebar-foreground: 40 20% 90%;
+    --sidebar-primary: 38 70% 55%;
+    --sidebar-primary-foreground: 20 10% 6%;
+    --sidebar-accent: 20 8% 14%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 25 10% 16%;
+    --sidebar-ring: 38 70% 55%;
 
-    /* Custom tokens */
-    --surface: 0 0% 7%;
-    --surface-hover: 0 0% 15%;
-    --surface-elevated: 0 0% 12%;
-    --chip: 0 0% 20%;
-    --chip-active: 0 0% 100%;
-    --chip-foreground: 0 0% 100%;
-    --chip-active-foreground: 0 0% 0%;
+    --surface: 20 10% 9%;
+    --surface-hover: 20 8% 16%;
+    --surface-elevated: 20 10% 13%;
+    --chip: 20 8% 20%;
+    --chip-active: 38 70% 55%;
+    --chip-foreground: 40 20% 90%;
+    --chip-active-foreground: 20 10% 6%;
     --overlay: 0 0% 0%;
-  }
 
-  /* Force dark mode always */
-  :root {
-    --background: 0 0% 6%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 95%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
+    --gold-gradient: linear-gradient(135deg, hsl(38 70% 55%), hsl(45 80% 65%), hsl(38 70% 55%));
+    --dark-gradient: linear-gradient(180deg, hsl(20 10% 8%), hsl(20 10% 4%));
+    --glow: 0 0 20px hsl(38 70% 55% / 0.15);
   }
 }
 
@@ -70,7 +57,10 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Roboto', 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
   }
 }
 
@@ -93,5 +83,37 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .gold-gradient-text {
+    background: linear-gradient(135deg, hsl(38 70% 55%), hsl(45 80% 70%), hsl(38 70% 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gold-border {
+    border: 1px solid hsl(38 70% 55% / 0.3);
+  }
+  .gold-glow {
+    box-shadow: 0 0 20px hsl(38 70% 55% / 0.15);
+  }
+  .card-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(38 70% 55% / 0.05), transparent);
+    transition: left 0.5s;
+  }
+  .card-shine:hover::before {
+    left: 100%;
   }
 }

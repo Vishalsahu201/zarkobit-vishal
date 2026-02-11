@@ -31,9 +31,9 @@ const CategoryChips = () => {
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`flex-shrink-0 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
+            className={`flex-shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
               active === cat
-                ? "bg-chip-active text-chip-active-foreground"
+                ? "bg-primary text-primary-foreground gold-glow"
                 : "bg-chip text-chip-foreground hover:bg-surface-hover"
             }`}
           >
