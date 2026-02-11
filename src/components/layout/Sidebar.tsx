@@ -1,10 +1,9 @@
 import {
-  Home, Flame, Library, Clock, ThumbsUp,
-  PlaySquare, ChevronDown, Music2, Gamepad2,
-  Newspaper, Trophy, Lightbulb, Radio
+  Home, Flame, Scissors, ScanFace, User, CalendarCheck,
+  Heart, Clock, ChevronDown, Sparkles, Film, Star, Store
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { subscriptions } from "@/data/mockData";
+import { salonList } from "@/data/mockData";
 
 interface SidebarProps {
   collapsed: boolean;
@@ -13,24 +12,24 @@ interface SidebarProps {
 const mainLinks = [
   { icon: Home, label: "Home", path: "/" },
   { icon: Flame, label: "Trending", path: "/trending" },
-  { icon: PlaySquare, label: "Subscriptions", path: "/subscriptions" },
-  { icon: Library, label: "Library", path: "/library" },
+  { icon: Film, label: "Reels", path: "/reels" },
+  { icon: Scissors, label: "Services", path: "/services" },
+  { icon: ScanFace, label: "AI Face Scan", path: "/face-scan" },
+  { icon: CalendarCheck, label: "Bookings", path: "/bookings" },
 ];
 
-const libraryLinks = [
-  { icon: Clock, label: "History", path: "/library" },
-  { icon: PlaySquare, label: "Your videos", path: "/library" },
-  { icon: ThumbsUp, label: "Liked videos", path: "/library" },
+const personalLinks = [
+  { icon: User, label: "My Profile", path: "/profile" },
+  { icon: Heart, label: "Favorites", path: "/favorites" },
+  { icon: Clock, label: "History", path: "/history" },
+  { icon: Star, label: "My Reviews", path: "/reviews" },
 ];
 
 const exploreLinks = [
-  { icon: Flame, label: "Trending", path: "/trending" },
-  { icon: Music2, label: "Music", path: "/trending" },
-  { icon: Gamepad2, label: "Gaming", path: "/trending" },
-  { icon: Newspaper, label: "News", path: "/trending" },
-  { icon: Trophy, label: "Sports", path: "/trending" },
-  { icon: Lightbulb, label: "Learning", path: "/trending" },
-  { icon: Radio, label: "Live", path: "/trending" },
+  { icon: Scissors, label: "Haircuts", path: "/services" },
+  { icon: Sparkles, label: "Makeup", path: "/services" },
+  { icon: Star, label: "Bridal", path: "/services" },
+  { icon: Store, label: "Near Me", path: "/services" },
 ];
 
 const Sidebar = ({ collapsed }: SidebarProps) => {
@@ -43,8 +42,8 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
           <Link
             key={label}
             to={path}
-            className={`flex w-full flex-col items-center gap-1 rounded-lg px-1 py-3 text-[10px] hover:bg-secondary ${
-              location.pathname === path ? "text-foreground" : "text-muted-foreground"
+            className={`flex w-full flex-col items-center gap-1 rounded-lg px-1 py-3 text-[10px] transition-colors hover:bg-secondary ${
+              location.pathname === path ? "text-primary" : "text-muted-foreground"
             }`}
           >
             <Icon className="h-5 w-5" />
@@ -63,26 +62,26 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
           <Link
             key={label}
             to={path}
-            className={`flex items-center gap-5 rounded-lg px-3 py-2 text-sm hover:bg-secondary ${
+            className={`flex items-center gap-4 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-secondary ${
               location.pathname === path
-                ? "bg-secondary font-medium text-foreground"
+                ? "bg-secondary font-medium text-primary"
                 : "text-foreground"
             }`}
           >
-            <Icon className="h-5 w-5 flex-shrink-0" />
+            <Icon className={`h-5 w-5 flex-shrink-0 ${location.pathname === path ? "text-primary" : ""}`} />
             <span>{label}</span>
           </Link>
         ))}
       </div>
 
-      {/* Library */}
+      {/* Personal */}
       <div className="border-b border-border py-3">
-        <h3 className="mb-1 px-3 text-sm font-medium text-foreground">Library</h3>
-        {libraryLinks.map(({ icon: Icon, label, path }) => (
+        <h3 className="mb-1 px-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">You</h3>
+        {personalLinks.map(({ icon: Icon, label, path }) => (
           <Link
             key={label}
             to={path}
-            className="flex items-center gap-5 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
+            className="flex items-center gap-4 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
           >
             <Icon className="h-5 w-5 flex-shrink-0" />
             <span>{label}</span>
@@ -90,24 +89,20 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
         ))}
       </div>
 
-      {/* Subscriptions */}
+      {/* Following Salons */}
       <div className="border-b border-border py-3">
-        <h3 className="mb-1 px-3 text-sm font-medium text-foreground">Subscriptions</h3>
-        {subscriptions.slice(0, 5).map((channel) => (
+        <h3 className="mb-1 px-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Following</h3>
+        {salonList.slice(0, 5).map((salon) => (
           <Link
-            key={channel.id}
-            to={`/channel/${channel.id}`}
-            className="flex items-center gap-5 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
+            key={salon.id}
+            to={`/salon/${salon.id}`}
+            className="flex items-center gap-4 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
           >
-            <img
-              src={channel.avatar}
-              alt={channel.name}
-              className="h-6 w-6 flex-shrink-0 rounded-full object-cover"
-            />
-            <span className="line-clamp-1">{channel.name}</span>
+            <img src={salon.avatar} alt={salon.name} className="h-6 w-6 flex-shrink-0 rounded-full object-cover" />
+            <span className="line-clamp-1">{salon.name}</span>
           </Link>
         ))}
-        <button className="flex items-center gap-5 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary">
+        <button className="flex items-center gap-4 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary">
           <ChevronDown className="h-5 w-5 flex-shrink-0" />
           <span>Show more</span>
         </button>
@@ -115,12 +110,12 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
 
       {/* Explore */}
       <div className="py-3">
-        <h3 className="mb-1 px-3 text-sm font-medium text-foreground">Explore</h3>
+        <h3 className="mb-1 px-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Explore</h3>
         {exploreLinks.map(({ icon: Icon, label, path }) => (
           <Link
             key={label}
             to={path}
-            className="flex items-center gap-5 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
+            className="flex items-center gap-4 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
           >
             <Icon className="h-5 w-5 flex-shrink-0" />
             <span>{label}</span>
@@ -129,8 +124,9 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
       </div>
 
       <div className="mt-4 px-3 pb-6 text-xs text-muted-foreground">
-        <p>© 2025 VidTube</p>
-        <p className="mt-1">Terms · Privacy · Policy & Safety</p>
+        <p className="font-display gold-gradient-text text-sm">Zarkobit</p>
+        <p className="mt-1">Your Premium Salon Experience</p>
+        <p className="mt-1">© 2025 Zarkobit. All rights reserved.</p>
       </div>
     </aside>
   );

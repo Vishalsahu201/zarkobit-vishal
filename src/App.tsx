@@ -6,10 +6,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "@/components/layout/MainLayout";
 import Index from "./pages/Index";
 import Trending from "./pages/Trending";
-import Subscriptions from "./pages/Subscriptions";
-import Library from "./pages/Library";
-import Watch from "./pages/Watch";
-import Channel from "./pages/Channel";
+import Services from "./pages/Services";
+import Reels from "./pages/Reels";
+import FaceScan from "./pages/FaceScan";
+import Profile from "./pages/Profile";
+import Bookings from "./pages/Bookings";
+import ServiceDetail from "./pages/ServiceDetail";
+import SalonPage from "./pages/SalonPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,10 +27,13 @@ const App = () => (
           <Route element={<MainLayout />}>
             <Route path="/" element={<Index />} />
             <Route path="/trending" element={<Trending />} />
-            <Route path="/subscriptions" element={<Subscriptions />} />
-            <Route path="/library" element={<Library />} />
-            <Route path="/watch/:id" element={<Watch />} />
-            <Route path="/channel/:id" element={<Channel />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/reels" element={<Reels />} />
+            <Route path="/face-scan" element={<FaceScan />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/bookings" element={<Bookings />} />
+            <Route path="/service/:id" element={<ServiceDetail />} />
+            <Route path="/salon/:id" element={<SalonPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

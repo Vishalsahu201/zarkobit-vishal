@@ -1,110 +1,175 @@
-export interface Video {
+export interface SalonService {
   id: string;
   title: string;
-  thumbnail: string;
-  channel: string;
-  channelAvatar: string;
-  views: string;
-  timestamp: string;
+  image: string;
+  category: string;
+  price: string;
   duration: string;
+  rating: number;
+  salon: string;
+  salonAvatar: string;
+  reviews: string;
   verified?: boolean;
 }
 
-export interface Channel {
+export interface Reel {
+  id: string;
+  thumbnail: string;
+  title: string;
+  salon: string;
+  likes: string;
+  views: string;
+  category: string;
+}
+
+export interface Stylist {
   id: string;
   name: string;
   avatar: string;
-  subscribers: string;
-  verified?: boolean;
+  specialty: string;
+  rating: number;
+  reviews: number;
 }
 
-const thumbnails = [
-  "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=640&h=360&fit=crop",
-  "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=640&h=360&fit=crop",
+const serviceImages = [
+  "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1470259078422-826894b933aa?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=640&h=360&fit=crop",
+  "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=640&h=360&fit=crop",
 ];
 
-const avatars = [
+const reelImages = [
+  "https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=360&h=640&fit=crop",
+  "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=360&h=640&fit=crop",
+  "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=360&h=640&fit=crop",
+  "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=360&h=640&fit=crop",
+  "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=360&h=640&fit=crop",
+  "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=360&h=640&fit=crop",
+  "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=360&h=640&fit=crop",
+  "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=360&h=640&fit=crop",
+  "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=360&h=640&fit=crop",
+  "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=360&h=640&fit=crop",
+];
+
+const salonAvatars = [
+  "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=80&h=80&fit=crop",
+  "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=80&h=80&fit=crop",
+  "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=80&h=80&fit=crop",
+  "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=80&h=80&fit=crop",
+  "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=80&h=80&fit=crop",
+];
+
+const stylistAvatars = [
   "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&h=80&fit=crop",
-  "https://images.unsplash.com/photo-1599566150163-29194dcabd9c?w=80&h=80&fit=crop",
-  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop",
   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop",
-  "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=80&h=80&fit=crop",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop",
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop",
 ];
 
-const channelNames = [
-  "TechVault", "CodeStream", "DevMasters", "PixelCraft Studio",
-  "ByteSize Learning", "The Code Report", "Frontend Wizards", "FullStack Pro"
+const salonNames = [
+  "Glamour Studio", "Royal Cuts", "Elegance Salon", "Luxe Beauty Bar",
+  "The Style Lounge", "Shine & Glow", "Prestige Hair", "Crown Beauty"
 ];
 
-const videoTitles = [
-  "Building a YouTube Clone with React & TypeScript - Full Tutorial",
-  "10 CSS Tricks You Didn't Know Existed in 2025",
-  "Why Every Developer Should Learn System Design",
-  "React 19 New Features - Complete Breakdown",
-  "The Future of Web Development - AI Tools You Need",
-  "Master Tailwind CSS in 20 Minutes - Beginner to Pro",
-  "How I Built a SaaS That Makes $10K/Month",
-  "JavaScript Interview Questions - Top 50 for 2025",
-  "Next.js vs Remix vs Astro - Which Should You Choose?",
-  "Building Real-Time Apps with WebSockets",
-  "Docker for Beginners - Complete Guide",
-  "Why TypeScript is Taking Over the World",
-  "Python vs JavaScript - Which is Better in 2025?",
-  "GraphQL Complete Tutorial - REST is Dead?",
-  "How to Deploy Your App for Free - 5 Best Platforms",
-  "Microservices Architecture Explained in 10 Minutes",
+const serviceTitles = [
+  "Premium Hair Coloring & Highlights - Complete Transformation",
+  "Luxury Bridal Makeup Package - HD Airbrush Finish",
+  "Keratin Hair Treatment - Smooth & Silky Results",
+  "Men's Fade Haircut - Modern Trending Styles",
+  "Full Body Spa Package - Relaxation & Rejuvenation",
+  "Nail Art & Gel Manicure - Creative Designs",
+  "Deep Facial Treatment - Anti-Aging & Glow",
+  "Hair Extensions - Natural Seamless Look",
+  "Eyebrow Threading & Shaping - Perfect Arch",
+  "Balayage Hair Color - Sun-Kissed Look",
+  "Head Massage & Oil Treatment - Stress Relief",
+  "Beard Grooming & Styling - Sharp Clean Look",
+  "Skin Whitening Facial - Brightening Formula",
+  "Party Makeup - Glamorous Evening Look",
+  "Hair Straightening - Permanent Smooth Finish",
+  "Mehndi Design - Traditional & Modern Art",
 ];
 
-const durations = [
-  "12:34", "8:21", "15:02", "22:47", "6:15", "18:30", "10:05", "45:12",
-  "7:33", "31:20", "14:18", "9:45", "20:11", "16:55", "5:42", "28:03"
+const reelTitles = [
+  "Amazing hair transformation! ✨",
+  "Bridal look tutorial 💄",
+  "Quick fade haircut 🔥",
+  "Nail art timelapse 💅",
+  "Before & After coloring 🎨",
+  "Skincare routine secrets 🧖",
+  "Men's grooming tips 💈",
+  "Wedding hairstyle ideas 👰",
+  "Makeup hacks you need! 💋",
+  "Salon tour - luxury vibes ✨",
 ];
 
-const views = [
-  "1.2M views", "850K views", "2.3M views", "456K views", "3.1M views",
-  "120K views", "780K views", "1.5M views", "92K views", "2.8M views",
-  "340K views", "1.1M views", "67K views", "4.2M views", "210K views", "560K views"
+const prices = ["₹499", "₹999", "₹1,499", "₹2,999", "₹799", "₹599", "₹1,999", "₹3,499", "₹299", "₹1,299"];
+const durations = ["30 min", "45 min", "1 hr", "1.5 hr", "2 hr", "20 min", "1 hr", "2.5 hr"];
+const reviews = ["1.2K reviews", "850 reviews", "2.3K reviews", "456 reviews", "3.1K reviews", "120 reviews", "780 reviews", "1.5K reviews"];
+
+export const categories = [
+  "All", "Haircut", "Makeup", "Facial", "Spa", "Nails", "Bridal", "Men's Grooming",
+  "Hair Color", "Skincare", "Massage", "Beard", "Extensions", "Mehndi"
 ];
 
-const timestamps = [
-  "2 hours ago", "1 day ago", "3 days ago", "1 week ago", "2 weeks ago",
-  "3 weeks ago", "1 month ago", "2 months ago", "5 hours ago", "12 hours ago",
-  "4 days ago", "6 days ago", "8 hours ago", "3 hours ago", "2 days ago", "5 days ago"
-];
-
-export const generateVideos = (count: number = 16): Video[] => {
+export const generateServices = (count: number = 16): SalonService[] => {
   return Array.from({ length: count }, (_, i) => ({
-    id: `video-${i + 1}`,
-    title: videoTitles[i % videoTitles.length],
-    thumbnail: thumbnails[i % thumbnails.length],
-    channel: channelNames[i % channelNames.length],
-    channelAvatar: avatars[i % avatars.length],
-    views: views[i % views.length],
-    timestamp: timestamps[i % timestamps.length],
+    id: `service-${i + 1}`,
+    title: serviceTitles[i % serviceTitles.length],
+    image: serviceImages[i % serviceImages.length],
+    category: categories[(i % (categories.length - 1)) + 1],
+    price: prices[i % prices.length],
     duration: durations[i % durations.length],
+    rating: 4 + Math.random() * 0.9,
+    salon: salonNames[i % salonNames.length],
+    salonAvatar: salonAvatars[i % salonAvatars.length],
+    reviews: reviews[i % reviews.length],
     verified: i % 3 === 0,
   }));
 };
 
-export const categories = [
-  "All", "Gaming", "Music", "Live", "Programming", "React", "TypeScript",
-  "Web Design", "AI", "Podcasts", "News", "Sports", "Comedy", "Movies"
+export const generateReels = (count: number = 10): Reel[] => {
+  return Array.from({ length: count }, (_, i) => ({
+    id: `reel-${i + 1}`,
+    thumbnail: reelImages[i % reelImages.length],
+    title: reelTitles[i % reelTitles.length],
+    salon: salonNames[i % salonNames.length],
+    likes: `${(Math.random() * 50 + 1).toFixed(1)}K`,
+    views: `${(Math.random() * 200 + 10).toFixed(0)}K`,
+    category: categories[(i % (categories.length - 1)) + 1],
+  }));
+};
+
+export const stylists: Stylist[] = [
+  { id: "s1", name: "Priya Sharma", avatar: stylistAvatars[1], specialty: "Hair Coloring Expert", rating: 4.9, reviews: 342 },
+  { id: "s2", name: "Rahul Verma", avatar: stylistAvatars[0], specialty: "Men's Grooming Specialist", rating: 4.8, reviews: 218 },
+  { id: "s3", name: "Anita Desai", avatar: stylistAvatars[3], specialty: "Bridal Makeup Artist", rating: 5.0, reviews: 567 },
+  { id: "s4", name: "Vikram Singh", avatar: stylistAvatars[2], specialty: "Hair Styling Pro", rating: 4.7, reviews: 189 },
+  { id: "s5", name: "Neha Gupta", avatar: stylistAvatars[4], specialty: "Skincare Specialist", rating: 4.9, reviews: 423 },
 ];
 
-export const subscriptions: Channel[] = channelNames.map((name, i) => ({
-  id: `channel-${i}`,
+export const salonList = salonNames.map((name, i) => ({
+  id: `salon-${i}`,
   name,
-  avatar: avatars[i % avatars.length],
-  subscribers: `${(Math.random() * 5 + 0.1).toFixed(1)}M subscribers`,
+  avatar: salonAvatars[i % salonAvatars.length],
+  subscribers: `${(Math.random() * 50 + 5).toFixed(1)}K followers`,
   verified: i % 2 === 0,
 }));
+
+export const faceScanResults = [
+  { style: "Layered Bob Cut", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=400&fit=crop", match: 95 },
+  { style: "Soft Waves", image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=400&fit=crop", match: 91 },
+  { style: "Pixie Cut", image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&h=400&fit=crop", match: 87 },
+  { style: "Straight & Sleek", image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=400&fit=crop", match: 84 },
+  { style: "Messy Bun", image: "https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=400&h=400&fit=crop", match: 80 },
+  { style: "Curtain Bangs", image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&h=400&fit=crop", match: 78 },
+];
