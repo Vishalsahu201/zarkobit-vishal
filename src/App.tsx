@@ -13,6 +13,8 @@ import Profile from "./pages/Profile";
 import Bookings from "./pages/Bookings";
 import ServiceDetail from "./pages/ServiceDetail";
 import SalonPage from "./pages/SalonPage";
+import Pricing from "./pages/Pricing";
+import Payment from "./pages/Payment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +34,8 @@ const App = () => (
             <Route path="/face-scan" element={<FaceScan />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/bookings" element={<Bookings />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/payment" element={<Payment />} />
             <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/salon/:id" element={<SalonPage />} />
           </Route>

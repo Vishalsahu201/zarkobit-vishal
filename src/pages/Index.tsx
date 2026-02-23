@@ -106,6 +106,22 @@ const Index = () => {
         </div>
       </div>
 
+      {/* Pricing CTA */}
+      <div className="px-4 mb-8">
+        <div className="rounded-2xl bg-gradient-to-r from-primary/15 via-card to-primary/10 p-6 gold-border text-center">
+          <h2 className="font-display text-xl font-bold gold-gradient-text">Go Premium ✨</h2>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Get unlimited AI Face Scans, 20% off services, priority booking & more from just ₹99/month
+          </p>
+          <Link
+            to="/pricing"
+            className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground gold-glow hover:opacity-90"
+          >
+            View Plans <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+
       {/* Services Grid */}
       <div className="px-4">
         <h2 className="font-display text-lg font-semibold text-foreground mb-4">Popular Services</h2>
