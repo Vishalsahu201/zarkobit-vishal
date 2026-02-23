@@ -1,6 +1,6 @@
 import {
   Home, Flame, Scissors, ScanFace, User, CalendarCheck,
-  Heart, Clock, ChevronDown, Sparkles, Film, Star, Store, Crown, IndianRupee
+  ChevronDown, Sparkles, Film, Star, Store, Crown, LayoutDashboard
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { salonList } from "@/data/mockData";
@@ -20,10 +20,9 @@ const mainLinks = [
 ];
 
 const personalLinks = [
+  { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
   { icon: User, label: "My Profile", path: "/profile" },
-  { icon: Heart, label: "Favorites", path: "/favorites" },
-  { icon: Clock, label: "History", path: "/history" },
-  { icon: Star, label: "My Reviews", path: "/reviews" },
+  { icon: Star, label: "My Reviews", path: "/dashboard" },
 ];
 
 const exploreLinks = [
@@ -82,7 +81,9 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
           <Link
             key={label}
             to={path}
-            className="flex items-center gap-4 rounded-lg px-3 py-2 text-sm text-foreground hover:bg-secondary"
+            className={`flex items-center gap-4 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-secondary ${
+              location.pathname === path ? "text-primary font-medium" : "text-foreground"
+            }`}
           >
             <Icon className="h-5 w-5 flex-shrink-0" />
             <span>{label}</span>

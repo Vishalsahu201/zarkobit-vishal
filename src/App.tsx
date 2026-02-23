@@ -11,6 +11,7 @@ import Reels from "./pages/Reels";
 import FaceScan from "./pages/FaceScan";
 import Profile from "./pages/Profile";
 import Bookings from "./pages/Bookings";
+import Dashboard from "./pages/Dashboard";
 import ServiceDetail from "./pages/ServiceDetail";
 import SalonPage from "./pages/SalonPage";
 import Pricing from "./pages/Pricing";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/face-scan" element={<FaceScan />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/bookings" element={<Bookings />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/service/:id" element={<ServiceDetail />} />
