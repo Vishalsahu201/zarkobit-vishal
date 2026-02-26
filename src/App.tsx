@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "@/components/layout/MainLayout";
+import AIChatbot from "@/components/AIChatbot";
 import Index from "./pages/Index";
 import Trending from "./pages/Trending";
 import Services from "./pages/Services";
@@ -16,6 +17,7 @@ import ServiceDetail from "./pages/ServiceDetail";
 import SalonPage from "./pages/SalonPage";
 import Pricing from "./pages/Pricing";
 import Payment from "./pages/Payment";
+import Subscriptions from "./pages/Subscriptions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,9 +42,11 @@ const App = () => (
             <Route path="/payment" element={<Payment />} />
             <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/salon/:id" element={<SalonPage />} />
+            <Route path="/subscriptions" element={<Subscriptions />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <AIChatbot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
