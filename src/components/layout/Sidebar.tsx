@@ -1,6 +1,7 @@
 import {
   Home, Flame, Scissors, ScanFace, User, CalendarCheck,
-  ChevronDown, Sparkles, Film, Star, Store, Crown, LayoutDashboard
+  ChevronDown, Sparkles, Film, Star, Store, Crown, LayoutDashboard,
+  Repeat, Award
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { salonList } from "@/data/mockData";
@@ -17,6 +18,7 @@ const mainLinks = [
   { icon: ScanFace, label: "AI Face Scan", path: "/face-scan" },
   { icon: CalendarCheck, label: "Bookings", path: "/bookings" },
   { icon: Crown, label: "Pricing", path: "/pricing" },
+  { icon: Repeat, label: "Subscriptions", path: "/subscriptions" },
 ];
 
 const personalLinks = [

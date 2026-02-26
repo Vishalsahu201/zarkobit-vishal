@@ -3,6 +3,7 @@ import { Sparkles, Star, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import ServiceCard from "@/components/ServiceCard";
 import CategoryChips from "@/components/CategoryChips";
+import Stories from "@/components/Stories";
 import { generateServices, generateReels, stylists } from "@/data/mockData";
 
 const Index = () => {
@@ -11,6 +12,9 @@ const Index = () => {
 
   return (
     <div className="pb-8">
+      {/* Instagram Stories */}
+      <Stories />
+
       {/* Hero Section */}
       <div className="relative mx-4 mt-4 overflow-hidden rounded-2xl bg-gradient-to-r from-primary/20 via-surface-elevated to-primary/10 p-8 gold-border">
         <div className="relative z-10">
