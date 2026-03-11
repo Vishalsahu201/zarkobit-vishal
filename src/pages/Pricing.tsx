@@ -73,7 +73,7 @@ const Pricing = () => {
   const navigate = useNavigate();
 
   const handleSelectPlan = (planId: string) => {
-    if (planId === "free") return;
+    // All plans navigate to payment
     navigate(`/payment?plan=${planId}`);
   };
 
