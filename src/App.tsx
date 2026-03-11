@@ -18,6 +18,15 @@ import SalonPage from "./pages/SalonPage";
 import Pricing from "./pages/Pricing";
 import Payment from "./pages/Payment";
 import Subscriptions from "./pages/Subscriptions";
+import Auth from "./pages/Auth";
+import ResetPassword from "./pages/ResetPassword";
+import MyBookings from "./pages/MyBookings";
+import FavoriteSalons from "./pages/FavoriteSalons";
+import BookingHistory from "./pages/BookingHistory";
+import MyReviews from "./pages/MyReviews";
+import SavedAddresses from "./pages/SavedAddresses";
+import AccountSettings from "./pages/AccountSettings";
+import NearbyMap from "./pages/NearbyMap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +38,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route element={<MainLayout />}>
             <Route path="/" element={<Index />} />
             <Route path="/trending" element={<Trending />} />
@@ -43,6 +54,13 @@ const App = () => (
             <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/salon/:id" element={<SalonPage />} />
             <Route path="/subscriptions" element={<Subscriptions />} />
+            <Route path="/my-bookings" element={<MyBookings />} />
+            <Route path="/favorite-salons" element={<FavoriteSalons />} />
+            <Route path="/booking-history" element={<BookingHistory />} />
+            <Route path="/my-reviews" element={<MyReviews />} />
+            <Route path="/saved-addresses" element={<SavedAddresses />} />
+            <Route path="/account-settings" element={<AccountSettings />} />
+            <Route path="/nearby" element={<NearbyMap />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

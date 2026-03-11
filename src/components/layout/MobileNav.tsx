@@ -1,12 +1,12 @@
-import { Home, Flame, Film, ScanFace, Scissors, CalendarCheck, Crown, User } from "lucide-react";
+import { Home, Film, ScanFace, MapPin, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
   { icon: Home, label: "Home", path: "/" },
   { icon: Film, label: "Reels", path: "/reels" },
   { icon: ScanFace, label: "Scan", path: "/face-scan" },
-  { icon: Scissors, label: "Services", path: "/services" },
-  { icon: CalendarCheck, label: "Bookings", path: "/bookings" },
+  { icon: MapPin, label: "Nearby", path: "/nearby" },
+  { icon: User, label: "Profile", path: "/profile" },
 ];
 
 const MobileNav = () => {

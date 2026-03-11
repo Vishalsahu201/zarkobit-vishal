@@ -4,20 +4,19 @@ import { Crown, Check, Sparkles, Zap, Shield, Star, ArrowRight, IndianRupee } fr
 
 const plans = [
   {
-    id: "free",
-    name: "Basic",
-    price: "Free",
-    period: "",
-    description: "Get started with basic salon features",
+    id: "starter",
+    name: "Starter",
+    price: "₹50",
+    period: "/month",
+    description: "Affordable grooming for everyone",
     features: [
       "Browse all salon services",
       "View salon reels & trending",
-      "Book appointments (₹2 service fee per booking)",
-      "Basic profile",
-      "View salon ratings & reviews",
+      "Book appointments (no extra fees)",
+      "Basic profile & reviews",
+      "1 AI Face Scan per month",
     ],
     notIncluded: [
-      "AI Face Scan",
       "Priority booking",
       "Exclusive discounts",
       "Ad-free experience",
@@ -74,7 +73,7 @@ const Pricing = () => {
   const navigate = useNavigate();
 
   const handleSelectPlan = (planId: string) => {
-    if (planId === "free") return;
+    // All plans navigate to payment
     navigate(`/payment?plan=${planId}`);
   };
 

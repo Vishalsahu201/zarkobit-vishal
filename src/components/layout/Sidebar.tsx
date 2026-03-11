@@ -19,6 +19,7 @@ const mainLinks = [
   { icon: CalendarCheck, label: "Bookings", path: "/bookings" },
   { icon: Crown, label: "Pricing", path: "/pricing" },
   { icon: Repeat, label: "Subscriptions", path: "/subscriptions" },
+  { icon: Store, label: "Nearby Salons", path: "/nearby" },
 ];
 
 const personalLinks = [
