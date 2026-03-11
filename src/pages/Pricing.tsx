@@ -4,11 +4,11 @@ import { Crown, Check, Sparkles, Zap, Shield, Star, ArrowRight, IndianRupee } fr
 
 const plans = [
   {
-    id: "free",
-    name: "Basic",
-    price: "Free",
-    period: "",
-    description: "Get started with basic salon features",
+    id: "starter",
+    name: "Starter",
+    price: "₹50",
+    period: "/month",
+    description: "Affordable grooming for everyone",
     features: [
       "Browse all salon services",
       "View salon reels & trending",
