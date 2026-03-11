@@ -12,12 +12,11 @@ const plans = [
     features: [
       "Browse all salon services",
       "View salon reels & trending",
-      "Book appointments (₹2 service fee per booking)",
-      "Basic profile",
-      "View salon ratings & reviews",
+      "Book appointments (no extra fees)",
+      "Basic profile & reviews",
+      "1 AI Face Scan per month",
     ],
     notIncluded: [
-      "AI Face Scan",
       "Priority booking",
       "Exclusive discounts",
       "Ad-free experience",
