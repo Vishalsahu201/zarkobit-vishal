@@ -1,9 +1,9 @@
-import { Home, Film, ScanFace, MapPin, User } from "lucide-react";
+import { Home, Film, ScanFace, MapPin, User, Newspaper } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
   { icon: Home, label: "Home", path: "/" },
-  { icon: Film, label: "Reels", path: "/reels" },
+  { icon: Newspaper, label: "Feed", path: "/feed" },
   { icon: ScanFace, label: "Scan", path: "/face-scan" },
   { icon: MapPin, label: "Nearby", path: "/nearby" },
   { icon: User, label: "Profile", path: "/profile" },
@@ -17,13 +17,8 @@ const MobileNav = () => {
       {navItems.map(({ icon: Icon, label, path }) => {
         const active = location.pathname === path;
         return (
-          <Link
-            key={path}
-            to={path}
-            className={`flex flex-col items-center gap-0.5 rounded-lg px-3 py-1.5 text-[10px] transition-colors ${
-              active ? "text-primary" : "text-muted-foreground"
-            }`}
-          >
+          <Link key={path} to={path}
+            className={`flex flex-col items-center gap-0.5 rounded-lg px-3 py-1.5 text-[10px] transition-colors ${active ? "text-primary" : "text-muted-foreground"}`}>
             <Icon className={`h-5 w-5 ${active ? "text-primary" : ""}`} />
             <span>{label}</span>
           </Link>
